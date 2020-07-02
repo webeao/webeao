@@ -40,7 +40,7 @@ const transporter = nodemailer.createTransport({
 
 
 const info = await transporter.sendMail({
-from: "'Alert Planet'  <alertplanet@diegodavidochoa.co>",
+from: "'Alert Planet'  <webeao@diegodavidochoa.co>",
 to: ['edwalejo21@hotmail.com','andres_marin1992@hotmail.com'],
 subject: 'Contaco Alert Planet',
 html: contentHTML
