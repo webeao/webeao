@@ -25,10 +25,10 @@ let enviarEmail = async (req, res) => {
 `;
 
 const transporter = nodemailer.createTransport({
-    host: 'webeao.diegodavidochoa.co',
+    host: 'mail.diegodavidochoa.co',
     port: 465,
     auth: {
-        user: 'alertplanet@diegodavidochoa.co',
+        user: 'webeao@diegodavidochoa.co',
         pass: 'Emiliano123*'
     },
     tls:{
