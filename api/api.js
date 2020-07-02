@@ -1,6 +1,6 @@
 require('./config/config')
 
-const express = require('express')
+const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const fileUpload = require('express-fileupload');
