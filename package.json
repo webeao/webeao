@@ -4,7 +4,7 @@
   "description": "Backend AlertPlatet Api",
   "main": "index.js",
   "scripts": {
-    "start": "node api.js",
+    "start": "node api/api",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Edwin Obando -Andres Marin",
