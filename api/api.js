@@ -51,6 +51,19 @@ app.get('*', function(req,res,next){
     res.sendFile(path.resolve('api/client/index.html'));
 } )
 
+// mongoose.connect(process.env.URLDB, {
+//     "auth": { "authSource": "admin" },
+//     "user": "superAdmin",
+//     "pass": "Alan123*",    
+//     }, (err, res) => {
+    
+//         if(err){
+//             console.warn('la conexion ha fallado')
+//         }else{
+//             console.log('¡Base de datos online!')
+//         }    
+//     });
+
 mongoose.connect(process.env.URLDB,   
 {useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true,useFindAndModify: false}
 , (err, res) => {

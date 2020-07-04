@@ -14,7 +14,7 @@ if(process.env.NODE_ENV === 'dev'){
     urlDB ='mongodb://179.50.90.135:20723/alert-planet'
 //  urlDB = 'mongodb://localhost:27017/alert-planet'
 }else{
-    urlDB = 'mongodb://superAdmin:Alan123*@179.50.90.135:20723/alert-planet'
+    urlDB = 'mongodb://179.50.90.135:20723/alert-planet'
 }
 process.env.URLDB =urlDB;
 
