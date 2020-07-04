@@ -80,7 +80,7 @@ let guardarHistoria = async (req, res) => {
                         categoria: historiaDB.categoria,
                         nombreImagen: historiaDB.img,
                         fecha: historiaDB.fecha,
-                        img: "http://179.50.90.135:3001/api/historia/" + historiaDB._id                     
+                        img: "http://179.50.90.135:3001/api/historia/" + historiaDB._id      
 
                     }
 
@@ -91,24 +91,14 @@ let guardarHistoria = async (req, res) => {
                                 ok: false,
                                 err
                             });
-
                             console.log(usuarioDB)
                         }
-
                     });
-
-
-
                 }
                 await = actualizarHistoria(historiaDB);
             });
-
-        }
-
+        }        
     });
-
-
-
 }
 
 

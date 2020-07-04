@@ -11,7 +11,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 let  urlDB;
 
 if(process.env.NODE_ENV === 'dev'){
- urlDB = 'mongodb://localhost:27017/alert-planet'
+    urlDB =   "mongodb://superAdmin:Alan123*@webeao.co:20723/alert-planet"
+//  urlDB = 'mongodb://localhost:27017/alert-planet'
 }else{
     urlDB = 'mongodb+srv://alertplanet:Pofsk16Jrn2GQcFP@cluster0-ftth6.mongodb.net/test?retryWrites=true&w=majority'
 }
