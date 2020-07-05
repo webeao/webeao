@@ -55,7 +55,7 @@ app.get('*', function(req,res,next){
 //     "auth": { "authSource": "admin" },
 //     "user": "superAdmin",
 //     "pass": "Alan123*",    
-//     }, (err, res) => {
+//     },{useNewUrlParser: true, (err, res) => {
     
 //         if(err){
 //             console.warn('la conexion ha fallado')
