@@ -1,17 +1,53 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
-  <meta charset="utf-8">
-  <title>AlertPlanet</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.52d8ab6c9fb3516bdecc.css"></head>
-<body class="footerCuerpo" >
-  <app-root></app-root>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="runtime-es2015.1eba213af0b233498d9d.js" type="module"></script><script src="runtime-es5.1eba213af0b233498d9d.js" nomodule defer></script><script src="polyfills-es5.9e286f6d9247438cbb02.js" nomodule defer></script><script src="polyfills-es2015.690002c25ea8557bb4b0.js" type="module"></script><script src="main-es2015.4ac20163a573206c8b3c.js" type="module"></script><script src="main-es5.4ac20163a573206c8b3c.js" nomodule defer></script></body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi casa IOT</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.17.0/firebase-database.js"></script>
+	<script src="homeiot.js"></script>
+</head>
+
+<body>
+    <header>Mi primera casa intelegente</header>
+    <Main>
+        <section id="TEMP">
+            <h1>Temperatura</h1>
+            <h2 id="temperatura">0.0</h2>
+        </section>
+
+        <section id="HUM">
+            <h1>Humedad</h1>
+            <h2 id="humedad"></h2>
+        </section>
+
+        <section id="GAS">
+            <h1>Presencia de gas</h1>
+            <h2 id="gas"></h2>
+        </section>
+
+        <section id="LIGHT">
+            <h1>Luz</h1>
+            <h2 id="luz"></h2>
+        </section>
+
+        <section id="LED">
+            <h1>Led</h1>
+            <h2 id="led"></h2>
+        </section>
+
+        <section>
+            <button class="myButton" onclick="encender()">Encender</button>
+            <button class="myButton" onclick="apagar()">Apagar</button>
+        </section>
+
+
+    </Main>
+</body>
+
 </html>
