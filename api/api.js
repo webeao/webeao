@@ -64,18 +64,18 @@ app.get('*', function(req,res,next){
 //         }    
 //     });
 
-mongoose.connect(process.env.URLDB,   
-{useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true,useFindAndModify: false}
-, (err, res) => {
+// mongoose.connect(process.env.URLDB,   
+// {useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true,useFindAndModify: false}
+// , (err, res) => {
 
-    if(err){
-        console.warn('la conexion ha fallado')
-    }else{
-        console.log('¡Base de datos online!')
-    }
+//     if(err){
+//         console.warn('la conexion ha fallado')
+//     }else{
+//         console.log('¡Base de datos online!')
+//     }
 
     
-});
+// });
 
 console.log(process.env);
 
