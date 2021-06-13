@@ -27,17 +27,17 @@ let autenticar = (req, res) =>{
             return res.status(400).json({
                 ok: false,
                 err: {
-                    message: '(Usuario) o contraseña incorrectos'
+                    message: '(Usuario) o contrasena incorrectos'
                 }
             });
         }
 
 
-        if (!bcrypt.compareSync(body.contraseña, usuarioDB.contraseña)) {
+        if (!bcrypt.compareSync(body.contrasena, usuarioDB.contrasena)) {
             return res.status(400).json({
                 ok: false,
                 err: {
-                    message: 'Usuario o (contraseña) incorrectos'
+                    message: 'Usuario o (contrasena) incorrectos'
                 }
             });
         }

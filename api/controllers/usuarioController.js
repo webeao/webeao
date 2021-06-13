@@ -33,7 +33,7 @@ let guardar = (req, res) => {
         nombres: body.nombres,
         apellidos: body.apellidos,
         correo: body.correo,
-        contraseña: bcrypt.hashSync(body.contraseña, 10),
+        contrasena: bcrypt.hashSync(body.contrasena, 10),
         pais: body.pais,
         telefono: body.telefono
     });
@@ -82,7 +82,7 @@ let modificar = (req, res) => {
 
     let id = req.params.id;
 
-    let body = _.pick(req.body, ['nombres','apellidos','telefono','pais', 'correo','estado','role','contraseña']);
+    let body = _.pick(req.body, ['nombres','apellidos','telefono','pais', 'correo','estado','role','contrasena']);
 
     Usuario.findByIdAndUpdate(id, body, (err, usuarioDB) => {
 

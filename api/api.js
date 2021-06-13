@@ -28,11 +28,11 @@ app.use(bodyParser.json());
 // app.use(cors());
 
 
-app.use('/',express.static(path.join(__dirname, 'client')));
+// app.use('/',express.static(path.join(__dirname, 'client')));
 // app.use('/',express.static('client'));
-// app.get('/', (req, res)=>{
-//     res.send('Bienvenido al API de AlertPlanet')
-// });
+app.get('/', (req, res)=>{
+    res.send('Bienvenido al API de AlertPlanet')
+});
 app.use(require('./routes/indexRoutes'));
 app.get('*', function(req,res,next){
     res.sendFile(path.resolve('api/client/index.html'));
@@ -50,18 +50,18 @@ app.get('*', function(req,res,next){
 //         }    
 //     });
 
-// mongoose.connect(process.env.URLDB,   
-// {useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true,useFindAndModify: false}
-// , (err, res) => {
+mongoose.connect(process.env.URLDB,   
+{useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true,useFindAndModify: false}
+, (err, res) => {
 
-//     if(err){
-//         console.warn('la conexion ha fallado')
-//     }else{
-//         console.log('¡Base de datos online!')
-//     }
+    if(err){
+        console.warn('la conexion ha fallado')
+    }else{
+        console.log('¡Base de datos online!')
+    }
 
     
-// });
+});
 
 console.log(process.env);
 
