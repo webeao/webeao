@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 // app.use('/',express.static(path.join(__dirname, 'client')));
 // app.use('/',express.static('client'));
 app.get('/', (req, res)=>{
-    res.send('Bienvenido al API de AlertPlanet')
+    res.send('Bienvenido al API de webeao Autor: Edwin Alejandro Obando Hurtado')
 });
 app.use(require('./routes/indexRoutes'));
 app.get('*', function(req,res,next){

@@ -61,7 +61,7 @@ let guardarConsejo = async (req, res) => {
                         nombreImagen: consejoDB.img,
                         fecha: consejoDB.fecha,
                         calificacion: consejoDB.calificacion,
-                        img: "https://alertplanet.herokuapp.com/api/consejo/" + consejoDB._id
+                        img: "http://179.50.90.135:3002/api/noticia/" + consejoDB._id
 
 
 
@@ -79,7 +79,7 @@ let guardarConsejo = async (req, res) => {
                         descripcion: consejoDB.descripcion,
                         nombreImagen: consejoDB.img,
                         fecha: consejoDB.fecha,
-                        img: "https://alertplanet.herokuapp.com/api/consejo/" + consejoDB._id
+                        img: "http://179.50.90.135:3002/api/noticia/" + consejoDB._id
 
                     }
 

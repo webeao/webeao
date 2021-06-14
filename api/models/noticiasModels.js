@@ -13,7 +13,7 @@ let noticiaSchema = new Schema({
     },
     titulo:{
         type: String,
-        required: [true, 'El tirulo es requerdo']
+        required: [true, 'El titulo es requerdo']
     },
     descripcion:{
         type: String,
