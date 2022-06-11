@@ -1,15 +1,30 @@
 const Usuario = require('../models/usuarioModels');
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
+const { json } = require('body-parser');
 
+
+let consultarRegistro = (req, res) => {
+    let id = req.params.id;
+    console.log('oeoeooe', req.params.id), 
+    Usuario.findById(id, (err, usuarioDB)=>{
+        if(err){
+            return res.status(400).json({
+                ok: false,
+                usuario: err
+            });
+        }
+        return res.status(200).json({
+            ok: true,
+            usuario: usuarioDB
+        })
+    })
+}
 
 
 let consultarRegistros = (req, res) => {
-
-
     Usuario.find({})
         .exec((err, datos) => {
-
             if (err) {
                 return res.status(400).json({
                     ok: false,
@@ -27,7 +42,6 @@ let consultarRegistros = (req, res) => {
 let guardar = (req, res) => {
 
     console.warn(req.body);
-
     let body = req.body;
     let usuario = new Usuario({
         nombres: body.nombres,
@@ -35,9 +49,9 @@ let guardar = (req, res) => {
         correo: body.correo,
         contrasena: bcrypt.hashSync(body.contrasena, 10),
         pais: body.pais,
-        telefono: body.telefono
+        telefono: body.telefono,
+        role: body.role
     });
-
     usuario.save((err, usuarioDB) => {
         if (err) {
             return res.status(400).json({
@@ -49,71 +63,39 @@ let guardar = (req, res) => {
             ok: true,
             usuario: usuarioDB
         });
-
     });
-
 }
 
-
-let consultarRegistro = (req, res) => {
-
-    let id = req.params.id;
-
-    Usuario.findById(id, (err, usuarioDB)=>{
-
-        if(err){
-            return res.status(400).json({
-                ok: false,
-                usuario: usuarioDB
-            });
-        }
-
-        return res.status(200).json({
-            ok: true,
-            usuario: usuarioDB
-        })
-
-
-
-    })
-}
 
 let modificar = (req, res) => {
-
+    console.log('paso por aca')
     let id = req.params.id;
-
     let body = _.pick(req.body, ['nombres','apellidos','telefono','pais', 'correo','estado','role','contrasena']);
-
     Usuario.findByIdAndUpdate(id, body, (err, usuarioDB) => {
-
         if (err) {
             return res.status(400).json({
                 ok: false,
                 err
             });
         }
-        res.json({
+        res.status(200).json({
             ok: true,
             usuario: usuarioDB
         });
-
     });
-
 }
 
-let eliminar = (req, res) => {
 
+let eliminar = (req, res) => {
     let id = req.params.id;
     let cambiaEstado = {
         estado: false
     }
     Usuario.findByIdAndUpdate(id, cambiaEstado, { new: true }, (err, usuarioBorrado) => {
-
         if (err) {
             return res.status(400).json({
                 ok: false,
                 err
-
             });
         };
 

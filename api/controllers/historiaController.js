@@ -61,7 +61,7 @@ let guardarHistoria = async (req, res) => {
                         categoria: historiaDB.categoria,
                         nombreImagen: historiaDB.img,
                         fecha: historiaDB.fecha,
-                        img: "http://179.50.90.135:3002/api/historia/" + historiaDB._id
+                        img: "http://localhost:3002/api/historia/" + historiaDB._id
 
 
 
@@ -161,10 +161,6 @@ let consultarHistoria = (req, res) => {
         let imagen = (historiaDB) => {
             console.log(historiaDB)
             let img = historiaDB.img
-
-
-
-
             let pathImagen = path.resolve(__dirname, `../uploads/historia/${historiaDB.nombreImagen}`);
 
 

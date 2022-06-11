@@ -8,8 +8,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
-let enviarEmail = async (req, res) => {
+let enviarEmailContacto = async (req, res) => {
     const { nombre, correo, telefono, mensaje } = req.body;
+
+    console.log('BODY', req.body)
 
     let body = req.body;
     console.log(body);
@@ -25,11 +27,12 @@ let enviarEmail = async (req, res) => {
 `;
 
 const transporter = nodemailer.createTransport({
-    host: 'mail.diegodavidochoa.co',
+    host: 'smtp.gmail.com',
     port: 465,
+    secure: true,
     auth: {
-        user: 'webeao@diegodavidochoa.co',
-        pass: 'Alanemiliano123*'
+        user: 'webeao@gmail.com',
+        pass: 'alan123*'
     },
     tls:{
         rejectUnauthorized: false
@@ -40,19 +43,19 @@ const transporter = nodemailer.createTransport({
 
 
 const info = await transporter.sendMail({
-from: "'Alert Planet'  <webeao@diegodavidochoa.co>",
-to: ['edwalejo21@hotmail.com','andres_marin1992@hotmail.com'],
-subject: 'Contaco Alert Planet',
+from: "'Webeao'  <webeao@gmail.com>",
+to: ['edwalejo21@hotmail.com'],
+subject: 'Contaco eaodeveloper',
 html: contentHTML
-});
+},(err)=> console.log('error', err));
 
-console.log('Message sent:', info.messageId);
+// console.log('Message sent:', info.messageId);
    
 //res.redirect('/success.html');
 res.json({
     ok: true,
-    informacion: info.messageId
-  
+    // informacion: info.messageId
+    // informacion: info
 
 })
 }
@@ -60,5 +63,5 @@ res.json({
 
 
 module.exports = {
-    enviarEmail
+    enviarEmailContacto
 }

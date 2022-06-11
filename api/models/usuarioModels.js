@@ -37,8 +37,8 @@ let usuarioSchema = new Schema({
     },
     role: {
         type: String,
-        required: true,
-        default: 'USER_ROLE'
+        required: false,
+        default: 'USER'     
     }
 
 

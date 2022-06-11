@@ -7,10 +7,7 @@ const fileUpload = require('express-fileupload');
 var path = require('path');
 
 // const cors = require('cors');
-
-
 const app = express();
-
 app.use(fileUpload());
 
 
@@ -31,7 +28,7 @@ app.use(bodyParser.json());
 // app.use('/',express.static(path.join(__dirname, 'client')));
 // app.use('/',express.static('client'));
 app.get('/', (req, res)=>{
-    res.send('Bienvenido al API de webeao Autor: Edwin Alejandro Obando Hurtado')
+    res.send('Bienvenido al API de Licores aburra. Autor: Edwin Alejandro Obando Hurtado')
 });
 app.use(require('./routes/indexRoutes'));
 app.get('*', function(req,res,next){

@@ -1,5 +1,6 @@
 //configurar las variables de entorno para el puerto  
 process.env.PORT = process.env.PORT || 3002;
+process.env.API_URL = 'http://181.206.38.86:3002';
 
 //Entorno
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';

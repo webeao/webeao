@@ -1,7 +1,7 @@
 {
-  "name": "alertplanet",
+  "name": "webeao",
   "version": "1.0.0",
-  "description": "Backend AlertPlatet Api",
+  "description": "Backend webeao Api",
   "main": "index.js",
   "scripts": {
     "start": "node api/api",
@@ -20,7 +20,7 @@
     "mongoose": "^5.9.10",
     "mongoose-unique-validator": "^2.0.3",
     "nodemailer": "^6.4.6",
-    "nodemon": "^2.0.3",
+    "nodemon": "^2.0.16",
     "underscore": "^1.10.2"
   }
 }
