@@ -2,7 +2,7 @@
 const express = require('express');
 const Categorias = require('../models/categoriasModels');
 const fs = require('fs');
-
+const path = require('path');
 
 
 
@@ -48,7 +48,7 @@ let guardar = (req, res) => {
                         nombre: categoriaDB.nombre,
                         descripcion: categoriaDB.descripcion,   
                         nombreImagen:  categoriaDB.imagen,                
-                        imagen: `${process.env.API_URL}/api/categirias/` + categoriaDB._id                     
+                        imagen: `${process.env.API_URL}/api/categoriasimagen/${categoriaDB._id}/${categoriaDB.imagen}`                           
     
                     }
                 });
@@ -62,7 +62,7 @@ let guardar = (req, res) => {
                         nombre: categoriaDB.nombre,
                         descripcion: categoriaDB.descripcion,   
                         nombreImagen:  categoriaDB.imagen,                 
-                        imagen: `${process.env.API_URL}/api/categirias/` + categoriaDB._id                     
+                        imagen: `${process.env.API_URL}/api/categoriasimagen/${categoriaDB._id}/${categoriaDB.imagen}`                 
     
                     }
     
@@ -111,35 +111,45 @@ let consultarCategoria = (req, res) => {
                     usuario: err
                 });
             }
-            // return res.status(200).json({
-            //     ok: true,
-            //     categoria: categoriaDB
-            // })
+            return res.status(200).json({
+                ok: true,
+                categoria: categoriaDB
+            })
 
 
-            let imagen = (categoriaDB) => {
-                console.log(categoriaDB)
-                let imgen = categoriaDB.imgen   
-                let pathImagen = path.resolve(__dirname, `../uploads/categorias${categoriaDB.nombreImagen}`);
-                if (fs.existsSync(pathImagen)) {    
-                    res.sendFile(pathImagen)
-                    console.log(pathImagen)
-                } else {
-                    let noImagePath = path.resolve(__dirname, '../uploads/no-image.jpg');
-                    res.sendFile(noImagePath)
-                }
-                console.log(pathImagen)
-            }
+            // let imagen = (categoriaDB) => {
+            //     console.log(categoriaDB)
+            //     let imgen = categoriaDB.imgen   
+            //     let pathImagen = path.resolve(__dirname, `../uploads/categorias/${categoriaDB.nombreImagen}`);
+            //     if (fs.existsSync(pathImagen)) {    
+            //         res.sendFile(pathImagen)
+            //         console.log('pathImagen', pathImagen)
+            //     } else {
+            //         let noImagePath = path.resolve(__dirname, '../uploads/no-image.jpg');
+            //         res.sendFile(noImagePath)
+            //     }
+            //     console.log(pathImagen)
+            // }
            
-            await = imagen(categoriaDB);
-            
-
-
-
-
-
+            // await = imagen(categoriaDB);
         })
 }
+
+let imagenCategoria = (req, res) => {
+    console.log('uuuuuuuuuuu', req.params)
+//    return res.status('200').json({oe: 'oe'})
+    // let imgen = req.params.imagen
+    let pathImagen = path.resolve(__dirname, `../uploads/categorias/${req.params.imagen}`);
+    if (fs.existsSync(pathImagen)) {
+        res.sendFile(pathImagen)
+        console.log('pathImagen', pathImagen)
+    } else {
+        let noImagePath = path.resolve(__dirname, '../uploads/no-image.jpg');
+        res.sendFile(noImagePath)
+    }
+    console.log(pathImagen)
+}
+
 
 
 
@@ -168,7 +178,8 @@ let consultarCategorias = (req, res) => {
 module.exports = {
     guardar,
     consultarCategoria,
-    consultarCategorias
+    consultarCategorias,
+    imagenCategoria
 }
 
 
